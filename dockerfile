@@ -1,3 +1,9 @@
-FROM httpd
+FROM node:18.1-alpine
 
-COPY index.html /usr/local/apache2/htdocs/
+WORKDIR /app
+
+RUN apk update && \
+    npm install -g npm && \
+    npm install -g vue-cli
+
+EXPOSE 8080
